@@ -1,38 +1,19 @@
-<?php
-$categorias = [];
-
-$categorias[0] = 'Infantil';
-$categorias[1] = 'Adolecente';
-$categorias[2] = 'Adulto';
-$categorias[3] = 'Idoso';
-
-$nome = "Vitor";
-$idade = 20;
-
-if($idade >= 6 AND $idade <= 12)
-{
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Infantil')
-        {   
-            echo "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
-        };
-    };
-}else if($idade >= 13 AND $idade <= 18)
-{
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Adolecente')
-        {   
-            echo "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
-        };
-    };
-}else{
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Adulto')
-        {   
-            echo "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
-        };
-    };
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form action="script.php" method="post">
+        <h3>Preencha Nome</h3>
+        <input type="text" placeholder="Nome" name="nome">
+        <h3>Preencha Idade</h3>
+        <input type="text" placeholder="Idade" name="Idade">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
