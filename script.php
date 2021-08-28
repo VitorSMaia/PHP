@@ -1,46 +1,14 @@
 <?php
+include '.\Controller\ValidacaoController.php';
+include '.\Model\CategoriaModel.php';
 
 session_start();
-$categorias = [];
-
-$categorias[0] = 'Infantil';
-$categorias[1] = 'Adolecente';
-$categorias[2] = 'Adulto';
-$categorias[3] = 'Idoso';
 
 $nome = $_POST['nome'];
 $idade = $_POST['Idade'];
 
-if(empty($nome))
-{
-    // session_unset($_SESSION['msg']);
-    $_SESSION['msg'] = 'O Nome Não Pode Ser Vazio, Preencha!';
-    header('location: index.php');
-}
-else if(strlen($nome) < 3)
-{
-    // session_unset($_SESSION['msg']);
-    $_SESSION['msg'] = 'O Nome deve ter mais de 3 Caracteres';
-    header('location: index.php');
-}
-else if(strlen($nome) > 40)
-{
-    // session_unset($_SESSION['msg']);
-    $_SESSION['msg'] = 'Esse Nome é muito grande';
-    header('location: index.php');
-}
-else if(empty($idade))
-{
-    $_SESSION['msg'] = 'A Idade Não Pode Ser Vazia, Preencha!';
-    header('location: index.php');
-
-}
-else if(!is_numeric($idade))
-{
-    $_SESSION['msg'] = 'Isso não é uma idade';
-    header('location: index.php');
-}
-
+ValidaNome($nome);
+ValidaIdade($idade);
 
 if($idade >= 6 AND $idade <= 12)
 {
@@ -48,7 +16,7 @@ if($idade >= 6 AND $idade <= 12)
     {
         if($categorias[$i] == 'Infantil')
         {   
-            $_SESSION['res'] = "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
+            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
             header('location: index.php');
         };
     };
@@ -58,7 +26,7 @@ if($idade >= 6 AND $idade <= 12)
     {
         if($categorias[$i] == 'Adolecente')
         {   
-            $_SESSION['res'] = "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
+            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
             header('location: index.php');
         };
     };
@@ -67,7 +35,7 @@ if($idade >= 6 AND $idade <= 12)
     {
         if($categorias[$i] == 'Adulto')
         {   
-            $_SESSION['res'] = "O Competidor ". $nome." Com Idade,".$idade.". Está na categoria: ".$categorias[$i];
+            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
             header('location: index.php');
         };
     };

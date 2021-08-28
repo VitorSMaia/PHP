@@ -14,8 +14,8 @@
     <form action="script.php" method="post">
         <?php 
 
-        $msgError = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
-        $msgSucess = isset($_SESSION['res']) ? $_SESSION['res'] : '';
+        $msgError = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+        $msgSucess = isset($_SESSION['sucess']) ? $_SESSION['sucess'] : '';
 
             if(!empty($msgError))
             {
