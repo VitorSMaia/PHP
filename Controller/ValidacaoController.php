@@ -1,5 +1,5 @@
 <?php
-include '.\Controller\SessionController.php';
+
 function ValidaNome(string $nome) : bool
 {
     if(empty($nome))
@@ -20,15 +20,14 @@ function ValidaNome(string $nome) : bool
         return false;
     }
     return true;
-}
+};
 
-function ValidaIdade(string $idade)
+function ValidaIdade(string $idade) :bool
 {
     if(empty($idade))
     {
         indexMenssagemError('A Idade Não Pode Ser Vazia, Preencha!');
         return false;
-    
     }
     else if(!is_numeric($idade))
     {
@@ -36,4 +35,4 @@ function ValidaIdade(string $idade)
         return false;
     }
     return true;
-}
+};

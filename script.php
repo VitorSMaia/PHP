@@ -1,42 +1,12 @@
 <?php
-include '.\Controller\ValidacaoController.php';
-include '.\Model\CategoriaModel.php';
 
+include_once './Model/CategoriaModel.php';
 session_start();
+$Name = $_POST['Name'];
+$Age = $_POST['Age'];
 
-$nome = $_POST['nome'];
-$idade = $_POST['Idade'];
+defineCategoria($Name,$Age);
 
-ValidaNome($nome);
-ValidaIdade($idade);
+header('Location: index.php');
 
-if($idade >= 6 AND $idade <= 12)
-{
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Infantil')
-        {   
-            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
-            header('location: index.php');
-        };
-    };
-}else if($idade >= 13 AND $idade <= 18)
-{
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Adolecente')
-        {   
-            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
-            header('location: index.php');
-        };
-    };
-}else {
-    for($i = 0;$i < count($categorias);$i++)
-    {
-        if($categorias[$i] == 'Adulto')
-        {   
-            $_SESSION['sucess'] = "O Competidor ". $nome." ,de idade,".$idade.". Está na categoria: ".$categorias[$i];
-            header('location: index.php');
-        };
-    };
-}
+?>

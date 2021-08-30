@@ -1,17 +1,16 @@
 <?php
-session_start();
-
 /**
  * Menssagem Erro
  */
 
 function indexMenssagemError(string $menssagem) : void
 {
-    $_SESSION['error'] = $menssagem;
+  $_SESSION['error'] = $menssagem;
 };
+
 function returnMenssagemError() : ?string
 {
-  return isset($_SESSION['error']) ? $_SESSION['error'] : null;
+  return $_SESSION['error'];
 };
 
 /**
@@ -22,8 +21,16 @@ function indexMenssagemSucess(string $menssagem) : void
 {
     $_SESSION['sucess'] = $menssagem;
 };
+
 function returnMenssagemSucess() : ?string
 {
-  return isset($_SESSION['sucess']) ? $_SESSION['sucess'] : null;
+  return $_SESSION['sucess'];
+};
+
+
+function destroySession()
+{
+  session_unset($_SESSION['sucess']);
+  session_unset($_SESSION['error']);
 };
 ?>
