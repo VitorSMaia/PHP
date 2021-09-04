@@ -1,4 +1,5 @@
 <?php
+include './Controller/SessionController.php';
     session_start()
 ?>
 <!DOCTYPE html>
@@ -19,8 +20,8 @@
         <button type="submit">Enviar</button>
     </form>
     <?php 
-        $msgError = isset($_SESSION['error']) ? $_SESSION['error'] : '';
-        $msgSucess = isset($_SESSION['sucess']) ? $_SESSION['sucess'] : '';
+        $msgError = returnMenssagemError();
+        $msgSucess = returnMenssagemSucess();
         if(!empty($msgError))
         {
             echo "<h4 style='color:red'>$msgError</h4>";

@@ -10,7 +10,7 @@ function indexMenssagemError(string $menssagem) : void
 
 function returnMenssagemError() : ?string
 {
-  return $_SESSION['error'];
+  return isset($_SESSION['error']) ? $_SESSION['error'] : null;
 };
 
 /**
@@ -24,7 +24,7 @@ function indexMenssagemSucess(string $menssagem) : void
 
 function returnMenssagemSucess() : ?string
 {
-  return $_SESSION['sucess'];
+  return isset($_SESSION['sucess']) ? $_SESSION['sucess'] : null;
 };
 
 
